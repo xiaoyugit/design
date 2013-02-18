@@ -24,7 +24,7 @@ class Design:
     def generate_delta(self,strategy):
         '''return a dictionary of time (4*1) and cost (4*3) change'''
         delta=strategy[1]-strategy[0]
-        delta_time=[max(1,int(self.rt*random()*delta)) for i in range(4)]
+        delta_time=[max(1,int(self.rt*(strategy[0]+random()*delta))) for i in range(4)]
         delta_cost=[]
         for i,dt in enumerate(delta_time):
             ith_round_cost=map(lambda x: x*dt,self.bid[i])
