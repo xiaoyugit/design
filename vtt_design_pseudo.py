@@ -33,12 +33,12 @@ def round(v):
 def show(i,j):
     '''show 4 choice scenarios in random position'''
     if rand() >= 0.5:
-        print 'ROUTE: ' + Time1[i][j] + 'minute ' + Cost1[i][j] + 'JPY /n'
+        print 'ROUTE: ' + Time1[i][0] + 'minute ' + Cost1[i][0] + 'JPY /n'
         print 'ROUTE: ' + Time2[i][j] + 'minute ' + Cost2[i][j] + 'JPY /n'
         input("Which route would you like to choose?")
     else: 
         print 'ROUTE: ' + Time2[i][j] + 'minute ' + Cost2[i][j] + 'JPY /n'
-        print 'ROUTE: ' + Time1[i][j] + 'minute ' + Cost1[i][j] + 'JPY /n'
+        print 'ROUTE: ' + Time1[i][0] + 'minute ' + Cost1[i][0] + 'JPY /n'
         input("Which route would you like to choose?")
 
 def main():
