@@ -51,33 +51,33 @@ def main():
         case condition of
             i == 1 or 2:
                 #WTP
-                deltaT=round ( drawTime[i] * Time1[i] )
-                deltaC=round ( drawVtt[i] * drawTime[i] * Time1[i] )
-                deltaCDown=round ( (drawVtt[i] + upperBoundVTT)/2 * drawTime[i] * Time1[i] )
-                deltaCUp=round ( (drawVtt[i] + lowerBoundVTT)/2 * drawTime[i] * Time1[i] )
-                Time2[i][0] = Time1[i] - deltaT
-                Cost2[i][0] = Cost1[i] + deltaC
+                deltaT=round ( drawTime[i] * Time1[i][0] )
+                deltaC=round ( drawVtt[i] * drawTime[i] * Time1[i][0] )
+                deltaCDown=round ( (drawVtt[i] + upperBoundVTT)/2 * drawTime[i] * Time1[i][0] )
+                deltaCUp=round ( (drawVtt[i] + lowerBoundVTT)/2 * drawTime[i] * Time1[i][0] )
+                Time2[i][0] = Time1[i][0] - deltaT
+                Cost2[i][0] = Cost1[i][0] + deltaC
                 Time2[i][1] = Time1[i][0]
-                Cost2[i][1] = Cost1[i] + deltaCDown
+                Cost2[i][1] = Cost1[i][0] + deltaCDown
                 Time2[i][2] = Time1[i][0]
-                Cost2[i][2] = Cost1[i] + deltaCUp
+                Cost2[i][2] = Cost1[i][0] + deltaCUp
             i == 3 or 4:
                 #WTA
-                MaxTimeDiff = Cost1[i] / upperBoundVtt 
-                deltaT=round ( min( drawTime[i] * Time1[i], MaxTimeDiff ) )
-                deltaC=round ( drawVtt[i] * min( drawTime[i] * Time1[i], MaxTimeDiff ) )
+                MaxTimeDiff = Cost1[i][0] / upperBoundVtt 
+                deltaT=round ( min( drawTime[i] * Time1[i][0], MaxTimeDiff ) )
+                deltaC=round ( drawVtt[i] * min( drawTime[i] * Time1[i][0], MaxTimeDiff ) )
                 deltaCDown=round ( (drawVtt[i] + upperBoundVTT)/2 * min( drawTime[i] * Time1[i], MaxTimeDiff ) )
                 deltaCUp=round ( (drawVtt[i] + lowerBoundVTT)/2 * min( drawTime[i] * Time1[i], MaxTimeDiff ) )
-                Time2[i][0] = Time1[i] - deltaT
-                Cost2[i][0] = Cost1[i] + deltaC
+                Time2[i][0] = Time1[i][0] + deltaT
+                Cost2[i][0] = Cost1[i][0] - deltaC
                 Time2[i][1] = Time1[i][0]
-                Cost2[i][1] = Cost1[i] + deltaCDown
+                Cost2[i][1] = Cost1[i][0] - deltaCDown
                 Time2[i][2] = Time1[i][0]
-                Cost2[i][2] = Cost1[i] + deltaCUp
+                Cost2[i][2] = Cost1[i][0] - deltaCUp
             i == 5
                 #Dominated
-                Time2[i]=Time1[i] + 10
-                Cost2[i]=Cost1[i] + 100
+                Time2[i][0]=Time1[i][0] + 10
+                Cost2[i][0]=Cost1[i][0] + 100
 
         end case
 
@@ -95,7 +95,7 @@ def main():
         
 
     #dominant choice question showing up
-    show(5)
+    show(5,0)
 
 if __name__='__main__':
     main()
