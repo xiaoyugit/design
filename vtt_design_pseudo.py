@@ -57,9 +57,9 @@ def main():
                 deltaCUp=round ( (drawVtt[i] + lowerBoundVTT)/2 * drawTime[i] * Time1[i][0] )
                 Time2[i][0] = Time1[i][0] - deltaT
                 Cost2[i][0] = Cost1[i][0] + deltaC
-                Time2[i][1] = Time1[i][0]
+                Time2[i][1] = Time1[i][0] - deltaT
                 Cost2[i][1] = Cost1[i][0] + deltaCDown
-                Time2[i][2] = Time1[i][0]
+                Time2[i][2] = Time1[i][0] - deltaT
                 Cost2[i][2] = Cost1[i][0] + deltaCUp
             i == 3 or 4:
                 #WTA
@@ -70,9 +70,9 @@ def main():
                 deltaCUp=round ( (drawVtt[i] + lowerBoundVTT)/2 * min( drawTime[i] * Time1[i], MaxTimeDiff ) )
                 Time2[i][0] = Time1[i][0] + deltaT
                 Cost2[i][0] = Cost1[i][0] - deltaC
-                Time2[i][1] = Time1[i][0]
+                Time2[i][1] = Time1[i][0] + deltaT
                 Cost2[i][1] = Cost1[i][0] - deltaCDown
-                Time2[i][2] = Time1[i][0]
+                Time2[i][2] = Time1[i][0] + deltaT
                 Cost2[i][2] = Cost1[i][0] - deltaCUp
             i == 5
                 #Dominated
