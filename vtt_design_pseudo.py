@@ -45,9 +45,9 @@ def main():
     '''main function'''
     drawVtt = 4strataRand( lowerBoundVtt, upperBoundVtt )
     drawTime = 4strataRand( lowerBoundTime, upperBoundTime )
-    Time1[i][0] = round ( ( 0.9 + 0.2 * rand() ) * refTime1 )
-    Cost1[i][0] = round ( ( 0.9 + 0.2 * rand() ) * refCost1 )
     for i = 1 to 5:
+        Time1[i][0] = round ( ( 0.9 + 0.2 * rand() ) * refTime1 )
+        Cost1[i][0] = round ( ( 0.9 + 0.2 * rand() ) * refCost1 )
         case condition of
             i == 1 or 2:
                 #WTP
