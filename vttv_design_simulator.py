@@ -87,7 +87,7 @@ if __name__ == "__main__":
     e_info = s.get_efficiency_info()
     #print e_info["avc"]
     print "Simulated t-ratios"
-    t_ratio = beta / e_info["avc"].diagonal()
+    t_ratio = beta / sqrt(e_info["avc"].diagonal())
     print t_ratio
     print "D-error:"
     print e_info["derror"]
