@@ -24,8 +24,9 @@ class Design:
                 mt = rt * (1 + d_mt)
                 cost = rc + d_cost
                 std = rt * d_cv
-                #rand_sd = sorted([mt + d_dt - rt - std * uniform() for i in range(2)] + [mt + d_dt - rt] + [mt + d_dt - rt + std * uniform() for i in range(2)])
                 t = mt + d_dt - rt
+                #rand_sd = sorted([t - std * uniform() for i in range(2)] + [t] + [t + std * uniform() for i in range(2)])
+                
                 rand_sd = [t - std] + [t - std * 0.5] + [t] + [t + std * 0.5] + [t + std]
                 tmp.extend([mt] + [cost] + rand_sd)
                 tmp = map(int,tmp)
@@ -81,7 +82,7 @@ if __name__ == "__main__":
     dm = array(design_matrix_convertor(om))
     print "Attributes used in estimating scheduling model:"
     print array(dm,dtype=Decimal)
-    beta = array([1,0.05,0.8,2.0])
+    beta = array([-1,-0.05,-0.8,-2.0])
     s = Simulator(beta, 300, dm)
     e_info = s.get_efficiency_info()
     #print e_info["avc"]
